@@ -14,19 +14,14 @@ int main(){
 	//INICIALIZANDO O LED DA PLACA, GPIO1_23
 	ledInit(GPIO23, MODULE1, DIR_OUTPUT);
 	//INICIALIZANDO O BOTÃO NO GPIO1_14, PASSANDO INPUT
-	ledInit(GPIO14, MODULE1, DIR_INPUT);
+	ledInit(GPIO1, MODULE2, DIR_INPUT);
 
 	while(TRUE){
-        switch((getValue(GPIO14, MODULE1))){
-			case PIN_HIGH:		
-				whitePinHigh(GPIO23, MODULE1);
-				break;
-			case PIN_LOW:
-		        whitePinLow(GPIO23, MODULE1);
-				break;	
+        if(getValue(GPIO1, MODULE2)){					
+			whitePinHigh(GPIO23, MODULE1);				
+		}else{
+			whitePinLow(GPIO23, MODULE1);	
 		}
-		
-        Delay(MSEG);
     }
 	
 	return(0);
