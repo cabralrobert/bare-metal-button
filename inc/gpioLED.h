@@ -47,9 +47,16 @@
 
 #define TOGGLE                          (0x01u)
 
-#define MSEG                           (0x3FFFFFF)
+#define MSEG							(0x3FFFFFF)
 
-enum moduleClk{MODULE0, MODULE1, MODULE2, MODULE3}moduleClk;
+//#define CONTROL_CONF_RXACTIVE			(0x00000020u)
+
+//#define CONTROL_CONF_PUTYPESEL			(0x00000010u)
+
+//#define CONTROL_CONF_PUDEN				(0x00000008u)
+
+
+enum module{MODULE0, MODULE1, MODULE2, MODULE3}module;
 
 enum pin{GPIO0, GPIO1, GPIO2, GPIO3, GPIO4, GPIO5, GPIO6,
 		 GPIO7, GPIO8, GPIO9, GPIO10, GPIO11, GPIO12, GPIO13,

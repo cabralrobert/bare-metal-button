@@ -4789,8 +4789,10 @@ CONTROL_CONF_PORZ_CONF_PORZ_RXACTIVE	inc/hw/hw_control_AM335x.h	5001;"	d
 CONTROL_CONF_PORZ_CONF_PORZ_RXACTIVE_SHIFT	inc/hw/hw_control_AM335x.h	5002;"	d
 CONTROL_CONF_PORZ_CONF_PORZ_SLEWCTRL	inc/hw/hw_control_AM335x.h	5004;"	d
 CONTROL_CONF_PORZ_CONF_PORZ_SLEWCTRL_SHIFT	inc/hw/hw_control_AM335x.h	5005;"	d
+CONTROL_CONF_PUDEN	inc/gpioLED.h	56;"	d
 CONTROL_CONF_PULLUDDISABLE	inc/hw/hw_control_AM335x.h	328;"	d
 CONTROL_CONF_PULLUPSEL	inc/hw/hw_control_AM335x.h	329;"	d
+CONTROL_CONF_PUTYPESEL	inc/gpioLED.h	54;"	d
 CONTROL_CONF_RMII1_REFCLK	inc/hw/hw_control_AM335x.h	216;"	d
 CONTROL_CONF_RMII1_REFCLK_CONF_RMII1_REFCLK_MMODE	inc/hw/hw_control_AM335x.h	4348;"	d
 CONTROL_CONF_RMII1_REFCLK_CONF_RMII1_REFCLK_MMODE_SHIFT	inc/hw/hw_control_AM335x.h	4349;"	d
@@ -4817,6 +4819,7 @@ CONTROL_CONF_RTC_PORZ_CONF_RTC_PORZ_RXACTIVE	inc/hw/hw_control_AM335x.h	5301;"	d
 CONTROL_CONF_RTC_PORZ_CONF_RTC_PORZ_RXACTIVE_SHIFT	inc/hw/hw_control_AM335x.h	5302;"	d
 CONTROL_CONF_RTC_PORZ_CONF_RTC_PORZ_SLEWCTRL	inc/hw/hw_control_AM335x.h	5304;"	d
 CONTROL_CONF_RTC_PORZ_CONF_RTC_PORZ_SLEWCTRL_SHIFT	inc/hw/hw_control_AM335x.h	5305;"	d
+CONTROL_CONF_RXACTIVE	inc/gpioLED.h	52;"	d
 CONTROL_CONF_RXACTIVE	inc/hw/hw_control_AM335x.h	330;"	d
 CONTROL_CONF_SLOWSLEW	inc/hw/hw_control_AM335x.h	331;"	d
 CONTROL_CONF_SPI0_CS0	inc/hw/hw_control_AM335x.h	222;"	d
@@ -28988,6 +28991,7 @@ wMaxPacketSize	inc/usblib.h	/^    unsigned short wMaxPacketSize;$/;"	m	struct:__
 wTotalLength	inc/usblib.h	/^    unsigned short wTotalLength;$/;"	m	struct:__anon22
 wValue	inc/usblib.h	/^    unsigned short wValue;$/;"	m	struct:__anon18
 wfi	inc/misc.h	67;"	d
+whitePinHigh	src/gpioFunctions.c	/^void whitePinHigh(unsigned int nGpio, unsigned int nModule){$/;"	f
 wrBase	inc/cpsw.h	/^    unsigned int wrBase;$/;"	m	struct:cpswContext
 wrCoreIntRxPulse	inc/cpsw.h	/^    unsigned int wrCoreIntRxPulse;$/;"	m	struct:cpswContext
 wrCoreIntTxPulse	inc/cpsw.h	/^    unsigned int wrCoreIntTxPulse;$/;"	m	struct:cpswContext

@@ -188,8 +188,12 @@ void modulo3(int nGpio){
 		selectI2C0(nGpio);
 		break;
 	
-		case GPIO7 ... GPIO8:
+		case GPIO7:
 		GPIOPinMuxSetup(CONTROL_CONF_EMU(0), CONTROL_CONF_MUXMODE(7));
+		break;
+
+		case GPIO8:
+		GPIOPinMuxSetup(CONTROL_CONF_EMU(1), CONTROL_CONF_MUXMODE(7));
 		break;
 
 		case GPIO13:
@@ -210,9 +214,21 @@ void Delay(volatile unsigned int count){
 
 
 int getValue(unsigned int nGpio, unsigned int nModule){
-	int* end_teste = (int*)(GPIO_INSTANCE_ADDRESS(nModule) + GPIO_DATAIN);
-	int teste = *end_teste;
+	int* end = (int*)(GPIO_INSTANCE_ADDRESS(nModule) + GPIO_DATAIN);
+	int value = *end;
 	
-	if(teste & (1<<nGpio)) return PIN_HIGH;
+	if(value & (1<<nGpio)) return PIN_HIGH;
 	else return PIN_LOW;
+}
+
+void whitePinHigh(unsigned int nGpio, unsigned int nModule){
+	GPIOPinWrite(GPIO_INSTANCE_ADDRESS(nModule),
+	     GPIO_INSTANCE_PIN_NUMBER(nGpio),
+	     PIN_HIGH);		
+}
+
+void whitePinLow(unsigned int nGpio, unsigned int nModule){
+	GPIOPinWrite(GPIO_INSTANCE_ADDRESS(nModule),
+	     GPIO_INSTANCE_PIN_NUMBER(nGpio),
+	     PIN_LOW);		
 }

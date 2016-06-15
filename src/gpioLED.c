@@ -36,9 +36,9 @@ int flagToggle=0x0;
 
 void GPIOPinMuxSetup(unsigned int offsetAddr, unsigned int padConfValue){
 		HWREG(SOC_CONTROL_REGS + offsetAddr) = (padConfValue);
-	    HWREG(SOC_CONTROL_REGS + offsetAddr) |= CONTROL_CONF_GPMC_AD12_CONF_GPMC_AD12_RXACTIVE;
-	    HWREG(SOC_CONTROL_REGS + offsetAddr) &= ~(CONTROL_CONF_GPMC_AD12_CONF_GPMC_AD12_PUTYPESEL);
-	    HWREG(SOC_CONTROL_REGS + offsetAddr) &= ~(CONTROL_CONF_GPMC_AD12_CONF_GPMC_AD12_PUDEN);
+	    HWREG(SOC_CONTROL_REGS + offsetAddr) |= CONTROL_CONF_RXACTIVE;
+	    HWREG(SOC_CONTROL_REGS + offsetAddr) &= ~(CONTROL_CONF_PULLUPSEL);
+	    HWREG(SOC_CONTROL_REGS + offsetAddr) &= ~(CONTROL_CONF_PULLUDDISABLE);
 }
 
 /*FUNCTION*-------------------------------------------------------

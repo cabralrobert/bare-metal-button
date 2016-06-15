@@ -19,13 +19,11 @@ int main(){
 	while(TRUE){
         switch((getValue(GPIO14, MODULE1))){
 			case PIN_HIGH:		
-	        GPIOPinWrite(GPIO_INSTANCE_ADDRESS(MODULE1),
-		            GPIO_INSTANCE_PIN_NUMBER(GPIO23),
-			        PIN_HIGH);		
+				whitePinHigh(GPIO23, MODULE1);
+				break;
 			case PIN_LOW:
-			GPIOPinWrite(GPIO_INSTANCE_ADDRESS(MODULE1),
-		            GPIO_INSTANCE_PIN_NUMBER(GPIO23),
-			        PIN_LOW);		
+		        whitePinLow(GPIO23, MODULE1);
+				break;	
 		}
 		
         Delay(MSEG);
