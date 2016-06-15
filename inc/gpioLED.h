@@ -49,11 +49,11 @@
 
 #define MSEG							(0x3FFFFFF)
 
-//#define CONTROL_CONF_RXACTIVE			(0x00000020u)
+#define CONTROL_CONF_RXACTIVE_IN			(0x00000020u)
 
-//#define CONTROL_CONF_PUTYPESEL			(0x00000010u)
+#define CONTROL_CONF_PUTYPESEL_IN			(0x00000010u)
 
-//#define CONTROL_CONF_PUDEN				(0x00000008u)
+#define CONTROL_CONF_PUDEN_IN				(0x00000008u)
 
 
 enum module{MODULE0, MODULE1, MODULE2, MODULE3}module;
@@ -75,6 +75,9 @@ void GPIODirModeSet(unsigned int baseAdd,
 void GPIOPinWrite(unsigned int baseAdd,
                             unsigned int pinNumber,
                             unsigned int pinValue);
+int getBank(int gpio);
+int getPin(int gpio);
+
 void ledToggle();
 
 

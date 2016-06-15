@@ -10,17 +10,19 @@
 #include "gpioLED.h"
 
 int main(){
+	unsigned int gpioOutput = 65;
+	unsigned int gpioInput = 44;	
 
 	//INICIALIZANDO O LED DA PLACA, GPIO1_23
-	ledInit(GPIO23, MODULE1, DIR_OUTPUT);
-	//INICIALIZANDO O BOTÃO NO GPIO1_14, PASSANDO INPUT
-	ledInit(GPIO1, MODULE2, DIR_INPUT);
+	ledInit(gpioOutput, DIR_OUTPUT);
+	//INICIALIZANDO O BOTÃO NO GPIO2_1, PASSANDO INPUT
+	ledInit(gpioInput, DIR_INPUT);
 
 	while(TRUE){
-        if(getValue(GPIO1, MODULE2)){					
-			whitePinHigh(GPIO23, MODULE1);				
+        if(getValue(gpioInput)){					
+			whitePinHigh(gpioOutput);				
 		}else{
-			whitePinLow(GPIO23, MODULE1);	
+			whitePinLow(gpioOutput);	
 		}
     }
 	

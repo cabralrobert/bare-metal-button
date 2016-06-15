@@ -12,9 +12,13 @@
 #include "gpioClk.h"
 #include "gpioPinSelect.h"
 
-void ledInit(int nGpio, int GPIOModule, int direction){
+int ledInit(int gpio, int dir_in_out){
+
+	int GPIOModule = getBank(gpio);
+	int nGpio = getPin(gpio);
 
     gpioModuleClk(GPIOModule);
+	GPIO1_ModuleClkConfig();
 	
 	//CONFIGURAR O PINO gpioPinSelect.c
 	switch(GPIOModule){
@@ -30,7 +34,7 @@ void ledInit(int nGpio, int GPIOModule, int direction){
 		case MODULE3:
 			modulo3(nGpio);
 			break;
-	}
+}
 	 
     GPIOModuleEnable(GPIO_INSTANCE_ADDRESS(GPIOModule));
 
@@ -38,10 +42,10 @@ void ledInit(int nGpio, int GPIOModule, int direction){
 
     GPIODirModeSet(GPIO_INSTANCE_ADDRESS(GPIOModule),
                GPIO_INSTANCE_PIN_NUMBER(nGpio),
-               direction);    
+               dir_in_out);
+    return 0;
 
 }
-
 
 void modulo0(int nGpio){
 	int num = 0;
@@ -124,7 +128,7 @@ void modulo1(int nGpio){
 		break;
 
 		case GPIO12 ... GPIO15:
-	    GPIOPinMuxSetup(CONTROL_CONF_GPMC_A(7), CONTROL_CONF_MUXMODE(7));	
+	    GPIOPinMuxSetup(CONTROL_CONF_GPMC_AD(nGpio), CONTROL_CONF_MUXMODE(7));	
 		break;
 
 		case GPIO8 ... GPIO11:
@@ -213,22 +217,39 @@ void Delay(volatile unsigned int count){
 }
 
 
-int getValue(unsigned int nGpio, unsigned int nModule){
-	int* end = (int*)(GPIO_INSTANCE_ADDRESS(nModule) + GPIO_DATAIN);
+int getValue(unsigned int nGpio){
+	int bank = getBank(nGpio);
+	int pin  = getPin(nGpio);
+
+	int *end = (int*)(GPIO_INSTANCE_ADDRESS(bank) + GPIO_DATAIN);
 	int value = *end;
 	
-	if(value & (1<<nGpio)) return PIN_HIGH;
+	if(value & (1<<pin)) return PIN_HIGH;
 	else return PIN_LOW;
 }
 
-void whitePinHigh(unsigned int nGpio, unsigned int nModule){
-	GPIOPinWrite(GPIO_INSTANCE_ADDRESS(nModule),
-	     GPIO_INSTANCE_PIN_NUMBER(nGpio),
+int getBank(int nGpio){
+	int value = nGpio / 32;
+	return value;
+}
+
+int getPin(int nGpio){
+	int value = nGpio % 32;
+	return value;
+}
+
+void whitePinHigh(unsigned int nGpio){	
+	int bank = getBank(nGpio);
+	int pin  = getPin(nGpio);
+	GPIOPinWrite(GPIO_INSTANCE_ADDRESS(bank),
+	     GPIO_INSTANCE_PIN_NUMBER(pin),
 	     PIN_HIGH);		
 }
 
-void whitePinLow(unsigned int nGpio, unsigned int nModule){
-	GPIOPinWrite(GPIO_INSTANCE_ADDRESS(nModule),
-	     GPIO_INSTANCE_PIN_NUMBER(nGpio),
+void whitePinLow(unsigned int nGpio){
+	int bank = getBank(nGpio);
+	int pin  = getPin(nGpio);
+	GPIOPinWrite(GPIO_INSTANCE_ADDRESS(bank),
+	     GPIO_INSTANCE_PIN_NUMBER(pin),
 	     PIN_LOW);		
 }
