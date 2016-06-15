@@ -4789,10 +4789,8 @@ CONTROL_CONF_PORZ_CONF_PORZ_RXACTIVE	inc/hw/hw_control_AM335x.h	5001;"	d
 CONTROL_CONF_PORZ_CONF_PORZ_RXACTIVE_SHIFT	inc/hw/hw_control_AM335x.h	5002;"	d
 CONTROL_CONF_PORZ_CONF_PORZ_SLEWCTRL	inc/hw/hw_control_AM335x.h	5004;"	d
 CONTROL_CONF_PORZ_CONF_PORZ_SLEWCTRL_SHIFT	inc/hw/hw_control_AM335x.h	5005;"	d
-CONTROL_CONF_PUDEN	inc/gpioLED.h	56;"	d
 CONTROL_CONF_PULLUDDISABLE	inc/hw/hw_control_AM335x.h	328;"	d
 CONTROL_CONF_PULLUPSEL	inc/hw/hw_control_AM335x.h	329;"	d
-CONTROL_CONF_PUTYPESEL	inc/gpioLED.h	54;"	d
 CONTROL_CONF_RMII1_REFCLK	inc/hw/hw_control_AM335x.h	216;"	d
 CONTROL_CONF_RMII1_REFCLK_CONF_RMII1_REFCLK_MMODE	inc/hw/hw_control_AM335x.h	4348;"	d
 CONTROL_CONF_RMII1_REFCLK_CONF_RMII1_REFCLK_MMODE_SHIFT	inc/hw/hw_control_AM335x.h	4349;"	d
@@ -4819,7 +4817,6 @@ CONTROL_CONF_RTC_PORZ_CONF_RTC_PORZ_RXACTIVE	inc/hw/hw_control_AM335x.h	5301;"	d
 CONTROL_CONF_RTC_PORZ_CONF_RTC_PORZ_RXACTIVE_SHIFT	inc/hw/hw_control_AM335x.h	5302;"	d
 CONTROL_CONF_RTC_PORZ_CONF_RTC_PORZ_SLEWCTRL	inc/hw/hw_control_AM335x.h	5304;"	d
 CONTROL_CONF_RTC_PORZ_CONF_RTC_PORZ_SLEWCTRL_SHIFT	inc/hw/hw_control_AM335x.h	5305;"	d
-CONTROL_CONF_RXACTIVE	inc/gpioLED.h	52;"	d
 CONTROL_CONF_RXACTIVE	inc/hw/hw_control_AM335x.h	330;"	d
 CONTROL_CONF_SLOWSLEW	inc/hw/hw_control_AM335x.h	331;"	d
 CONTROL_CONF_SPI0_CS0	inc/hw/hw_control_AM335x.h	222;"	d
@@ -14227,7 +14224,6 @@ En	inc/tsc_adc.h	/^                   signed int En;$/;"	m	struct:__anon17
 FAIL	inc/armv7a/am335x/clock.h	/^    FAIL     = 0,$/;"	e	enum:__anon1
 FALSE	inc/hw/hw_types.h	85;"	d
 Fn	inc/tsc_adc.h	/^                   signed int Fn;$/;"	m	struct:__anon17
-GET32	src/start.s	/^GET32:$/;"	l
 GPIO0	inc/gpioLED.h	/^enum pin{GPIO0, GPIO1, GPIO2, GPIO3, GPIO4, GPIO5, GPIO6,$/;"	e	enum:pin
 GPIO0_ModuleClkConfig	src/gpioClk.c	/^void GPIO0_ModuleClkConfig(void){$/;"	f
 GPIO0_REG	inc/hw/hw_tps65910.h	137;"	d
@@ -22135,10 +22131,10 @@ MMU_PGTYPE_SUPERSECTION	inc/armv7a/mmu.h	71;"	d
 MMU_REGION_NON_SECURE	inc/armv7a/mmu.h	133;"	d
 MMU_REGION_SECURE	inc/armv7a/mmu.h	130;"	d
 MMU_SECTION_EXEC_NEVER	inc/armv7a/mmu.h	167;"	d
-MODULE0	inc/gpioLED.h	/^enum moduleClk{MODULE0, MODULE1, MODULE2, MODULE3}moduleClk;$/;"	e	enum:moduleClk
-MODULE1	inc/gpioLED.h	/^enum moduleClk{MODULE0, MODULE1, MODULE2, MODULE3}moduleClk;$/;"	e	enum:moduleClk
-MODULE2	inc/gpioLED.h	/^enum moduleClk{MODULE0, MODULE1, MODULE2, MODULE3}moduleClk;$/;"	e	enum:moduleClk
-MODULE3	inc/gpioLED.h	/^enum moduleClk{MODULE0, MODULE1, MODULE2, MODULE3}moduleClk;$/;"	e	enum:moduleClk
+MODULE0	inc/gpioLED.h	/^enum module{MODULE0, MODULE1, MODULE2, MODULE3}module;$/;"	e	enum:module
+MODULE1	inc/gpioLED.h	/^enum module{MODULE0, MODULE1, MODULE2, MODULE3}module;$/;"	e	enum:module
+MODULE2	inc/gpioLED.h	/^enum module{MODULE0, MODULE1, MODULE2, MODULE3}module;$/;"	e	enum:module
+MODULE3	inc/gpioLED.h	/^enum module{MODULE0, MODULE1, MODULE2, MODULE3}module;$/;"	e	enum:module
 MODULE_AND_CLOCK_DISABLED	inc/armv7a/am335x/clock.h	181;"	d
 MODULE_AND_CLOCK_NOT_DISABLED	inc/armv7a/am335x/clock.h	182;"	d
 MODULE_DISABLED	inc/armv7a/am335x/clock.h	179;"	d
@@ -23451,7 +23447,6 @@ PRU_INTC_SITR2_REG	inc/pruss.h	156;"	d
 PRU_INTC_SRSR1_REG	inc/pruss.h	119;"	d
 PRU_INTC_SRSR2_REG	inc/pruss.h	120;"	d
 PUADEN_REG	inc/hw/hw_tps65910.h	99;"	d
-PUT32	src/start.s	/^PUT32:$/;"	l
 PWMSS_CLOCK_CONFIG	inc/hw/hw_pwmss.h	45;"	d
 PWMSS_CLOCK_STATUS	inc/hw/hw_pwmss.h	47;"	d
 PWMSS_ECAP_CLK_EN_ACK	inc/hw/hw_pwmss.h	57;"	d
@@ -28488,9 +28483,7 @@ __USB_H__	inc/usb.h	42;"	d
 __WDT_H__	inc/watchdog.h	44;"	d
 __channel_to_host_map	inc/pruss.h	/^ typedef struct __channel_to_host_map$/;"	s
 __pruss_intc_initdata	inc/pruss.h	/^ typedef struct __pruss_intc_initdata $/;"	s
-__start_H	inc/start.h	2;"	d
 __sysevt_to_channel_map	inc/pruss.h	/^ typedef struct __sysevt_to_channel_map$/;"	s
-_start	src/start.s	/^_start:$/;"	l
 _tUSBPerfInfo_	inc/usblib.h	/^typedef struct _tUSBPerfInfo_$/;"	s
 aCnt	inc/edma.h	/^        unsigned short aCnt;$/;"	m	struct:EDMA3CCPaRAMEntry
 accsCtrl	inc/armv7a/mmu.h	/^    unsigned int accsCtrl; \/* Access Permissions for the page *\/$/;"	m	struct:region
@@ -28754,8 +28747,8 @@ mdioCtrl	inc/mdio.h	/^    unsigned int mdioCtrl;$/;"	m	struct:mdioContext
 memAttrib	inc/armv7a/mmu.h	/^    unsigned int memAttrib; \/* Memory Type and Cache Settings *\/$/;"	m	struct:region
 mode	inc/cppi41dma.h	/^    unsigned short mode;$/;"	m	struct:__anon13
 module	inc/armv7a/am335x/clock.h	/^    unsigned int module;$/;"	m	struct:mapModule
-moduleClk	inc/gpioLED.h	/^enum moduleClk{MODULE0, MODULE1, MODULE2, MODULE3}moduleClk;$/;"	g
-moduleClk	inc/gpioLED.h	/^enum moduleClk{MODULE0, MODULE1, MODULE2, MODULE3}moduleClk;$/;"	v	typeref:enum:moduleClk
+module	inc/gpioLED.h	/^enum module{MODULE0, MODULE1, MODULE2, MODULE3}module;$/;"	g
+module	inc/gpioLED.h	/^enum module{MODULE0, MODULE1, MODULE2, MODULE3}module;$/;"	v	typeref:enum:module
 moduleStatusReg	inc/armv7a/am335x/clock.h	/^        unsigned int *moduleStatusReg;$/;"	m	struct:__anon4
 modulo0	src/gpioFunctions.c	/^void modulo0(int nGpio){$/;"	f
 modulo1	src/gpioFunctions.c	/^void modulo1(int nGpio){$/;"	f
@@ -28992,6 +28985,7 @@ wTotalLength	inc/usblib.h	/^    unsigned short wTotalLength;$/;"	m	struct:__anon
 wValue	inc/usblib.h	/^    unsigned short wValue;$/;"	m	struct:__anon18
 wfi	inc/misc.h	67;"	d
 whitePinHigh	src/gpioFunctions.c	/^void whitePinHigh(unsigned int nGpio, unsigned int nModule){$/;"	f
+whitePinLow	src/gpioFunctions.c	/^void whitePinLow(unsigned int nGpio, unsigned int nModule){$/;"	f
 wrBase	inc/cpsw.h	/^    unsigned int wrBase;$/;"	m	struct:cpswContext
 wrCoreIntRxPulse	inc/cpsw.h	/^    unsigned int wrCoreIntRxPulse;$/;"	m	struct:cpswContext
 wrCoreIntTxPulse	inc/cpsw.h	/^    unsigned int wrCoreIntTxPulse;$/;"	m	struct:cpswContext
