@@ -18,7 +18,6 @@ int ledInit(int gpio, int dir_in_out){
 	int nGpio = getPin(gpio);
 
     gpioModuleClk(GPIOModule);
-	GPIO1_ModuleClkConfig();
 	
 	//CONFIGURAR O PINO gpioPinSelect.c
 	switch(GPIOModule){
@@ -222,8 +221,8 @@ int getValue(unsigned int nGpio){
 	int pin  = getPin(nGpio);
 
 	int *end = (int*)(GPIO_INSTANCE_ADDRESS(bank) + GPIO_DATAIN);
-	int value = *end;
-	
+	int value = *end;	
+
 	if(value & (1<<pin)) return PIN_HIGH;
 	else return PIN_LOW;
 }
@@ -238,7 +237,7 @@ int getPin(int nGpio){
 	return value;
 }
 
-void whitePinHigh(unsigned int nGpio){	
+void writePinHigh(unsigned int nGpio){	
 	int bank = getBank(nGpio);
 	int pin  = getPin(nGpio);
 	GPIOPinWrite(GPIO_INSTANCE_ADDRESS(bank),
@@ -246,7 +245,7 @@ void whitePinHigh(unsigned int nGpio){
 	     PIN_HIGH);		
 }
 
-void whitePinLow(unsigned int nGpio){
+void writePinLow(unsigned int nGpio){
 	int bank = getBank(nGpio);
 	int pin  = getPin(nGpio);
 	GPIOPinWrite(GPIO_INSTANCE_ADDRESS(bank),

@@ -11,7 +11,7 @@
 #include "gpioLED.h"
 #include "gpioClk.h"
 
-void GPIO3_ModuleClkConfig(void){
+static void GPIO3_ModuleClkConfig(void){
 
     HWREG(SOC_CM_PER_REGS + CM_PER_GPIO3_CLKCTRL) |=
           CM_PER_GPIO3_CLKCTRL_MODULEMODE_ENABLE;
@@ -21,7 +21,7 @@ void GPIO3_ModuleClkConfig(void){
 
 }
 
-void GPIO2_ModuleClkConfig(void){
+static void GPO2_ModuleClkConfig(void){
 
     HWREG(SOC_CM_PER_REGS + CM_PER_GPIO2_CLKCTRL) |=
           CM_PER_GPIO2_CLKCTRL_MODULEMODE_ENABLE;
@@ -31,7 +31,7 @@ void GPIO2_ModuleClkConfig(void){
 
 }
 
-void GPIO1_ModuleClkConfig(void){
+static void GPIO1_ModuleClkConfig(void){
 
     HWREG(SOC_CM_PER_REGS + CM_PER_GPIO1_CLKCTRL) |=
           CM_PER_GPIO1_CLKCTRL_MODULEMODE_ENABLE;
@@ -42,7 +42,7 @@ void GPIO1_ModuleClkConfig(void){
 }
 
 
-void GPIO0_ModuleClkConfig(void){
+static void GPIO0_ModuleClkConfig(void){
 
     HWREG(SOC_CM_WKUP_REGS + CM_WKUP_GPIO0_CLKCTRL) |=
           CM_WKUP_GPIO0_CLKCTRL_MODULEMODE_ENABLE;

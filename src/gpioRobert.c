@@ -20,9 +20,9 @@ int main(){
 
 	while(TRUE){
         if(getValue(gpioInput)){					
-			whitePinHigh(gpioOutput);				
+			writePinHigh(gpioOutput);				
 		}else{
-			whitePinLow(gpioOutput);	
+			writePinLow(gpioOutput);	
 		}
     }
 	

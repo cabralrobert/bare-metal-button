@@ -28989,11 +28989,11 @@ wMaxPacketSize	inc/usblib.h	/^    unsigned short wMaxPacketSize;$/;"	m	struct:__
 wTotalLength	inc/usblib.h	/^    unsigned short wTotalLength;$/;"	m	struct:__anon22
 wValue	inc/usblib.h	/^    unsigned short wValue;$/;"	m	struct:__anon18
 wfi	inc/misc.h	67;"	d
-whitePinHigh	src/gpioFunctions.c	/^void whitePinHigh(unsigned int nGpio){	$/;"	f
-whitePinLow	src/gpioFunctions.c	/^void whitePinLow(unsigned int nGpio){$/;"	f
 wrBase	inc/cpsw.h	/^    unsigned int wrBase;$/;"	m	struct:cpswContext
 wrCoreIntRxPulse	inc/cpsw.h	/^    unsigned int wrCoreIntRxPulse;$/;"	m	struct:cpswContext
 wrCoreIntTxPulse	inc/cpsw.h	/^    unsigned int wrCoreIntTxPulse;$/;"	m	struct:cpswContext
+writePinHigh	src/gpioFunctions.c	/^void writePinHigh(unsigned int nGpio){	$/;"	f
+writePinLow	src/gpioFunctions.c	/^void writePinLow(unsigned int nGpio){$/;"	f
 x	inc/tsc_adc.h	/^                   signed int x;$/;"	m	struct:__anon16
 xclkchk	inc/mcasp.h	/^    unsigned int xclkchk;$/;"	m	struct:mcaspContext
 xfmt	inc/mcasp.h	/^    unsigned int xfmt;$/;"	m	struct:mcaspContext

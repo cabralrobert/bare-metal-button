@@ -23,8 +23,8 @@ int flagToggle=0x0;
 *
 * Function Name : GPIOPinMuxSetup
 * Comments      : This function does the pin multiplexing for any GPIO Pin.
-** \param  offsetAddr   ThCONTROL_CONF_SPI0_D0_CONF_SPI0_D0_PUDENCONTROL_CONF_SPI0_D0_CONF_SPI0_D0_PUDENis is the offset address of the Pad Control Register
-*                      coCONTROL_CONF_SPI0_D0_CONF_SPI0_D0_PUDENrresponding to the GPIO pin. These addresses are
+** \param  offsetAddr   This is the offset address of the Pad Control Register
+*                      corresponding to the GPIO pin. These addresses are
 *                      offsets with respect to the base address of the
 *                      Control Module.
 * \param  padConfValue This is the value to be written to the Pad Control
