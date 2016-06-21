@@ -21,7 +21,7 @@ static void GPIO3_ModuleClkConfig(void){
 
 }
 
-static void GPO2_ModuleClkConfig(void){
+static void GPIO2_ModuleClkConfig(void){
 
     HWREG(SOC_CM_PER_REGS + CM_PER_GPIO2_CLKCTRL) |=
           CM_PER_GPIO2_CLKCTRL_MODULEMODE_ENABLE;

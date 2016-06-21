@@ -12,41 +12,7 @@
 #include "gpioClk.h"
 #include "gpioPinSelect.h"
 
-int ledInit(int gpio, int dir_in_out){
-
-	int GPIOModule = getBank(gpio);
-	int nGpio = getPin(gpio);
-
-    gpioModuleClk(GPIOModule);
-	
-	//CONFIGURAR O PINO gpioPinSelect.c
-	switch(GPIOModule){
-		case MODULE0:
-			modulo0(nGpio);			
-			break;
-		case MODULE1:
-			modulo1(nGpio);
-			break;
-		case MODULE2:
-			modulo2(nGpio);
-			break;
-		case MODULE3:
-			modulo3(nGpio);
-			break;
-}
-	 
-    GPIOModuleEnable(GPIO_INSTANCE_ADDRESS(GPIOModule));
-
-    GPIOModuleReset(GPIO_INSTANCE_ADDRESS(GPIOModule));
-
-    GPIODirModeSet(GPIO_INSTANCE_ADDRESS(GPIOModule),
-               GPIO_INSTANCE_PIN_NUMBER(nGpio),
-               dir_in_out);
-    return 0;
-
-}
-
-void modulo0(int nGpio){
+static void modulo0(int nGpio){
 	int num = 0;
 	switch(nGpio){
 		case GPIO0 ... GPIO1:
@@ -119,7 +85,7 @@ void modulo0(int nGpio){
 	}
 }
 
-void modulo1(int nGpio){
+static void modulo1(int nGpio){
 	int num = 0;
 	switch(nGpio){
 		case GPIO0 ... GPIO7:
@@ -149,7 +115,7 @@ void modulo1(int nGpio){
 	}
 }
 
-void modulo2(int nGpio){
+static void modulo2(int nGpio){
 	int num = 0;
 	switch(nGpio){
 		case GPIO0 ... GPIO5:
@@ -177,7 +143,7 @@ void modulo2(int nGpio){
 
 }
 
-void modulo3(int nGpio){
+static void modulo3(int nGpio){
 	switch(nGpio){
 		case GPIO0 ... GPIO4:
 		selectMII1(nGpio);
@@ -210,44 +176,65 @@ void modulo3(int nGpio){
 
 }
 
+
+
+int ledInit(int gpio, int dir_in_out){
+
+	int GPIOModule = GETBANK(gpio);
+	int nGpio = GETPIN(gpio);
+
+    gpioModuleClk(GPIOModule);
+	
+	//CONFIGURAR O PINO gpioPinSelect.c
+	switch(GPIOModule){
+		case MODULE0:
+			modulo0(nGpio);			
+			break;
+		case MODULE1:
+			modulo1(nGpio);
+			break;
+		case MODULE2:
+			modulo2(nGpio);
+			break;
+		case MODULE3:
+			modulo3(nGpio);
+			break;
+}
+	 
+    GPIOModuleEnable(GPIO_INSTANCE_ADDRESS(GPIOModule));
+
+    GPIOModuleReset(GPIO_INSTANCE_ADDRESS(GPIOModule));
+
+    GPIODirModeSet(GPIO_INSTANCE_ADDRESS(GPIOModule),
+               GPIO_INSTANCE_PIN_NUMBER(nGpio),
+               dir_in_out);
+    return 0;
+
+}
+
 void Delay(volatile unsigned int count){
     while(count--);
       asm("   nop");
 }
 
-
 int getValue(unsigned int nGpio){
-	int bank = getBank(nGpio);
-	int pin  = getPin(nGpio);
+	int bank = GETBANK(nGpio);
+	int pin = GETPIN(nGpio);
 
-	int *end = (int*)(GPIO_INSTANCE_ADDRESS(bank) + GPIO_DATAIN);
-	int value = *end;	
-
-	if(value & (1<<pin)) return PIN_HIGH;
-	else return PIN_LOW;
-}
-
-int getBank(int nGpio){
-	int value = nGpio / 32;
-	return value;
-}
-
-int getPin(int nGpio){
-	int value = nGpio % 32;
-	return value;
+    return(HWREG(bank + GPIO_DATAIN) & (1 << pin));
 }
 
 void writePinHigh(unsigned int nGpio){	
-	int bank = getBank(nGpio);
-	int pin  = getPin(nGpio);
+	int bank = GETBANK(nGpio);
+	int pin  = GETPIN(nGpio);
 	GPIOPinWrite(GPIO_INSTANCE_ADDRESS(bank),
 	     GPIO_INSTANCE_PIN_NUMBER(pin),
 	     PIN_HIGH);		
 }
 
 void writePinLow(unsigned int nGpio){
-	int bank = getBank(nGpio);
-	int pin  = getPin(nGpio);
+	int bank = GETBANK(nGpio);
+	int pin  = GETPIN(nGpio);
 	GPIOPinWrite(GPIO_INSTANCE_ADDRESS(bank),
 	     GPIO_INSTANCE_PIN_NUMBER(pin),
 	     PIN_LOW);		
