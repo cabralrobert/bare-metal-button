@@ -3,8 +3,8 @@
 
 #include "gpioLED.h"
 
-#define  GETPIN(nGpio)		(nGpio / 32)
-#define  GETBANK(nGpio)		(nGpio % 32)
+#define  GETPIN(nGpio)		(nGpio % 32)
+#define  GETBANK(nGpio)		(nGpio / 32)
 
 int ledInit(int nGpio, int dir_in_out);
 void Delay(volatile unsigned int count);

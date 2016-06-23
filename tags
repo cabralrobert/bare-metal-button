@@ -14227,8 +14227,10 @@ En	inc/tsc_adc.h	/^                   signed int En;$/;"	m	struct:__anon17
 FAIL	inc/armv7a/am335x/clock.h	/^    FAIL     = 0,$/;"	e	enum:__anon1
 FALSE	inc/hw/hw_types.h	85;"	d
 Fn	inc/tsc_adc.h	/^                   signed int Fn;$/;"	m	struct:__anon17
+GETBANK	inc/gpioFunctions.h	7;"	d
+GETPIN	inc/gpioFunctions.h	6;"	d
 GPIO0	inc/gpioLED.h	/^enum pin{GPIO0, GPIO1, GPIO2, GPIO3, GPIO4, GPIO5, GPIO6,$/;"	e	enum:pin
-GPIO0_ModuleClkConfig	src/gpioClk.c	/^void GPIO0_ModuleClkConfig(void){$/;"	f
+GPIO0_ModuleClkConfig	src/gpioClk.c	/^static void GPIO0_ModuleClkConfig(void){$/;"	f	file:
 GPIO0_REG	inc/hw/hw_tps65910.h	137;"	d
 GPIO1	inc/gpioLED.h	/^enum pin{GPIO0, GPIO1, GPIO2, GPIO3, GPIO4, GPIO5, GPIO6,$/;"	e	enum:pin
 GPIO10	inc/gpioLED.h	/^		 GPIO7, GPIO8, GPIO9, GPIO10, GPIO11, GPIO12, GPIO13,$/;"	e	enum:pin
@@ -14241,7 +14243,7 @@ GPIO16	inc/gpioLED.h	/^		 GPIO14, GPIO15, GPIO16, GPIO17, GPIO18, GPIO19, GPIO20
 GPIO17	inc/gpioLED.h	/^		 GPIO14, GPIO15, GPIO16, GPIO17, GPIO18, GPIO19, GPIO20,$/;"	e	enum:pin
 GPIO18	inc/gpioLED.h	/^		 GPIO14, GPIO15, GPIO16, GPIO17, GPIO18, GPIO19, GPIO20,$/;"	e	enum:pin
 GPIO19	inc/gpioLED.h	/^		 GPIO14, GPIO15, GPIO16, GPIO17, GPIO18, GPIO19, GPIO20,$/;"	e	enum:pin
-GPIO1_ModuleClkConfig	src/gpioClk.c	/^void GPIO1_ModuleClkConfig(void){$/;"	f
+GPIO1_ModuleClkConfig	src/gpioClk.c	/^static void GPIO1_ModuleClkConfig(void){$/;"	f	file:
 GPIO2	inc/gpioLED.h	/^enum pin{GPIO0, GPIO1, GPIO2, GPIO3, GPIO4, GPIO5, GPIO6,$/;"	e	enum:pin
 GPIO20	inc/gpioLED.h	/^		 GPIO14, GPIO15, GPIO16, GPIO17, GPIO18, GPIO19, GPIO20,$/;"	e	enum:pin
 GPIO21	inc/gpioLED.h	/^		 GPIO21, GPIO22, GPIO23, GPIO24, GPIO25, GPIO26, GPIO27,$/;"	e	enum:pin
@@ -14253,11 +14255,11 @@ GPIO26	inc/gpioLED.h	/^		 GPIO21, GPIO22, GPIO23, GPIO24, GPIO25, GPIO26, GPIO27
 GPIO27	inc/gpioLED.h	/^		 GPIO21, GPIO22, GPIO23, GPIO24, GPIO25, GPIO26, GPIO27,$/;"	e	enum:pin
 GPIO28	inc/gpioLED.h	/^		 GPIO28, GPIO29, GPIO30, GPIO31}pin;$/;"	e	enum:pin
 GPIO29	inc/gpioLED.h	/^		 GPIO28, GPIO29, GPIO30, GPIO31}pin;$/;"	e	enum:pin
-GPIO2_ModuleClkConfig	src/gpioClk.c	/^void GPIO2_ModuleClkConfig(void){$/;"	f
+GPIO2_ModuleClkConfig	src/gpioClk.c	/^static void GPIO2_ModuleClkConfig(void){$/;"	f	file:
 GPIO3	inc/gpioLED.h	/^enum pin{GPIO0, GPIO1, GPIO2, GPIO3, GPIO4, GPIO5, GPIO6,$/;"	e	enum:pin
 GPIO30	inc/gpioLED.h	/^		 GPIO28, GPIO29, GPIO30, GPIO31}pin;$/;"	e	enum:pin
 GPIO31	inc/gpioLED.h	/^		 GPIO28, GPIO29, GPIO30, GPIO31}pin;$/;"	e	enum:pin
-GPIO3_ModuleClkConfig	src/gpioClk.c	/^void GPIO3_ModuleClkConfig(void){$/;"	f
+GPIO3_ModuleClkConfig	src/gpioClk.c	/^static void GPIO3_ModuleClkConfig(void){$/;"	f	file:
 GPIO4	inc/gpioLED.h	/^enum pin{GPIO0, GPIO1, GPIO2, GPIO3, GPIO4, GPIO5, GPIO6,$/;"	e	enum:pin
 GPIO5	inc/gpioLED.h	/^enum pin{GPIO0, GPIO1, GPIO2, GPIO3, GPIO4, GPIO5, GPIO6,$/;"	e	enum:pin
 GPIO6	inc/gpioLED.h	/^enum pin{GPIO0, GPIO1, GPIO2, GPIO3, GPIO4, GPIO5, GPIO6,$/;"	e	enum:pin
@@ -28674,8 +28676,6 @@ gBuffAdd	inc/cppi41dma.h	/^    unsigned int gBuffAdd;$/;"	m	struct:hostPacketDes
 gBuffLength	inc/cppi41dma.h	/^    unsigned int gBuffLength;$/;"	m	struct:hostPacketDesc
 gblctl	inc/mcasp.h	/^    unsigned int gblctl;$/;"	m	struct:mcaspContext
 genericClock	inc/armv7a/am335x/clock.h	/^struct genericClock{$/;"	s
-getBank	src/gpioFunctions.c	/^int getBank(int nGpio){$/;"	f
-getPin	src/gpioFunctions.c	/^int getPin(int nGpio){$/;"	f
 getValue	src/gpioFunctions.c	/^int getValue(unsigned int nGpio){$/;"	f
 gmiisel	inc/armv7a/am335x/beaglebone.h	/^    unsigned int gmiisel;$/;"	m	struct:ctrlRegContext
 gmiisel	inc/armv7a/am335x/evmAM335x.h	/^    unsigned int gmiisel;$/;"	m	struct:ctrlRegContext
@@ -28755,10 +28755,10 @@ module	inc/armv7a/am335x/clock.h	/^    unsigned int module;$/;"	m	struct:mapModu
 module	inc/gpioLED.h	/^enum module{MODULE0, MODULE1, MODULE2, MODULE3}module;$/;"	g
 module	inc/gpioLED.h	/^enum module{MODULE0, MODULE1, MODULE2, MODULE3}module;$/;"	v	typeref:enum:module
 moduleStatusReg	inc/armv7a/am335x/clock.h	/^        unsigned int *moduleStatusReg;$/;"	m	struct:__anon4
-modulo0	src/gpioFunctions.c	/^void modulo0(int nGpio){$/;"	f
-modulo1	src/gpioFunctions.c	/^void modulo1(int nGpio){$/;"	f
-modulo2	src/gpioFunctions.c	/^void modulo2(int nGpio){$/;"	f
-modulo3	src/gpioFunctions.c	/^void modulo3(int nGpio){$/;"	f
+modulo0	src/gpioFunctions.c	/^static void modulo0(int nGpio){$/;"	f	file:
+modulo1	src/gpioFunctions.c	/^static void modulo1(int nGpio){$/;"	f	file:
+modulo2	src/gpioFunctions.c	/^static void modulo2(int nGpio){$/;"	f	file:
+modulo3	src/gpioFunctions.c	/^static void modulo3(int nGpio){$/;"	f	file:
 muxInputSelMask	inc/armv7a/am335x/clock.h	/^        unsigned int muxInputSelMask;$/;"	m	struct:genericClock
 muxInputSelReg	inc/armv7a/am335x/clock.h	/^        unsigned int *muxInputSelReg;$/;"	m	struct:genericClock
 muxInputSelVal	inc/armv7a/am335x/clock.h	/^        unsigned int muxInputSelVal;$/;"	m	struct:genericClock
