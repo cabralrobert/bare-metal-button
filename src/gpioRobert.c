@@ -10,8 +10,8 @@
 #include "gpioLED.h"
 
 int main(){
-	unsigned int gpioOutput = 65;
-	unsigned int gpioInput = 44;	
+	unsigned int gpioOutput = 55; //pino 23, modulo 1
+	unsigned int gpioInput = 65; //pino 1, modulo 2
 
 	//INICIALIZANDO O LED DA PLACA, GPIO1_23
 	ledInit(gpioOutput, DIR_OUTPUT);

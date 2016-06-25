@@ -176,15 +176,13 @@ static void modulo3(int nGpio){
 
 }
 
-
-
 int ledInit(int gpio, int dir_in_out){
 
 	int GPIOModule = GETBANK(gpio);
 	int nGpio = GETPIN(gpio);
 
-    gpioModuleClk(GPIOModule);
-	
+	gpioModuleClk(GPIOModule);
+
 	//CONFIGURAR O PINO gpioPinSelect.c
 	switch(GPIOModule){
 		case MODULE0:
@@ -199,17 +197,14 @@ int ledInit(int gpio, int dir_in_out){
 		case MODULE3:
 			modulo3(nGpio);
 			break;
-}
-	 
-    GPIOModuleEnable(GPIO_INSTANCE_ADDRESS(GPIOModule));
-
-    GPIOModuleReset(GPIO_INSTANCE_ADDRESS(GPIOModule));
-
+	}
+	
+	GPIOModuleEnable(GPIO_INSTANCE_ADDRESS(GPIOModule));
+ 
     GPIODirModeSet(GPIO_INSTANCE_ADDRESS(GPIOModule),
                GPIO_INSTANCE_PIN_NUMBER(nGpio),
                dir_in_out);
     return 0;
-
 }
 
 void Delay(volatile unsigned int count){
@@ -221,7 +216,11 @@ int getValue(unsigned int nGpio){
 	int bank = GETBANK(nGpio);
 	int pin = GETPIN(nGpio);
 
-    return(HWREG(bank + GPIO_DATAIN) & (1 << pin));
+	int *end_valor = (int*)(GPIO_INSTANCE_ADDRESS(bank) + GPIO_DATAIN);
+	int valorpin = *end_valor;
+	
+	if(valorpin & (1<<pin)) return PIN_HIGH;
+	else return PIN_LOW;
 }
 
 void writePinHigh(unsigned int nGpio){	
